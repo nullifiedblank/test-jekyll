@@ -86,20 +86,26 @@
   }
 }
 
+.mission-footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
 .mission-figure {
-  position: absolute;
   width: 231px;
   height: 143px;
-  left: 285px;
-  top: 505.5px;
   background: url('../../assets/images/mission-figure.webp') no-repeat center center;
   background-size: contain;
   z-index: 2;
+  align-self: flex-end;
+  margin-top: 10px;
 
-  @media screen and (max-width: 600px) { // Custom breakpoint for smaller layouts where absolute pos might break
-    position: relative;
-    left: auto;
-    top: auto;
+  @media screen and (max-width: 600px) {
     align-self: center;
     margin-top: 20px;
   }

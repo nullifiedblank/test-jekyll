@@ -32,7 +32,7 @@ function replaceCSSClass(element, oldClassName, newClassName) {
 //Close the item when clicking outside
 function clickOutside() {
   /*
-    
+
     Attach attribute data-close-container="identifier" to the element outside which you want to the click to register
     attach attribute data-close-target="identifier" to the element you want to close, attach data-close-class="class-name" to the [data-close-container] element and define the class you want to remove from [data-close-target] element upon clicking outside the [data-close-container]. Class name defaults to 'is-visible'
   */
