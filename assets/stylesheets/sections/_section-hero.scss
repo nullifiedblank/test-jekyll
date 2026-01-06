@@ -1,0 +1,112 @@
+#home-hero {
+	padding-top: 412px;
+	background-image: url('../../assets/images/pi-figure-product.webp'), url('../../assets/images/pi-bg.webp');
+	background-size: 190px, 640px;
+	background-position: top -8px right -19px, top right -77px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	margin-bottom: 0;
+	overflow: hidden;
+	background-color: $black-6;
+
+	@media screen and (min-width: $mobile-screen) {
+		background-size: 295px, cover;
+		background-position: top right 40px, center center;
+		padding-top: 264px;
+		padding-bottom: 80px;
+	}
+
+	@media screen and (min-width: $tablet-screen) {
+		background-size: 400px, cover;
+	}
+
+	.container {
+		opacity: 1;
+		& > .content:first-child {
+			padding-bottom: 232px;
+			position: relative;
+			z-index: 2;
+
+			@media screen and (min-width: $mobile-screen) {
+				padding-bottom: 173px;
+				max-width: 453px;
+			}
+
+			@media screen and (min-width: $tablet-screen) {
+				max-width: 472px;
+			}
+		}
+	}
+
+	.button-primary {
+		@media screen and (max-width: 899px) {
+			display: none;
+		}
+	}
+}
+
+.hero-devices-figure-1,
+.hero-devices-figure-2 {
+	position: absolute;
+	transform: scale(0.5);
+	z-index: 1;
+
+	@media screen and (min-width: $mobile-screen) {
+		transform: unset;
+
+		img {
+			animation: mover 1s infinite alternate ease-in-out;
+		}
+	}
+}
+
+.hero-devices-figure-1 {
+	top: -45px;
+	left: -103px;
+	width: 253px;
+	img {
+		animation: mover 2s infinite alternate ease-in-out;
+	}
+
+	@media screen and (min-width: $mobile-screen) {
+		top: 54px;
+		left: 6%;
+	}
+
+	@media screen and (min-width: $tablet-screen) {
+		left: 23%;
+	}
+}
+
+.hero-devices-figure-2 {
+	width: 500px;
+	left: -122px;
+	bottom: 0;
+	top: 97px;
+	img {
+		animation: alt-mover 2s infinite alternate ease-in-out;
+	}
+
+	@media screen and (min-width: $mobile-screen) {
+		top: unset;
+		left: 9%;
+	}
+
+	@media screen and (min-width: $tablet-screen) {
+		left: 34%;
+	}
+}
+
+.home-scrolldown {
+	font-size: 12px;
+	font-weight: 300;
+	letter-spacing: 0.96px;
+	text-transform: uppercase;
+	display: flex;
+	align-items: center;
+	gap: 14px;
+
+	@media screen and (max-width: 899px) {
+		display: none;
+	}
+}

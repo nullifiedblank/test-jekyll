@@ -1,0 +1,128 @@
+#home-problem {
+	padding-top: 447px;
+	padding-bottom: 54px;
+	background-position: top;
+	background-color: $black-6;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	position: relative;
+	overflow: hidden;
+	margin-top: -157px;
+
+	@media screen and (min-width: $mobile-screen) {
+		margin-top: 0;
+	}
+
+	@media screen and (min-width: $tablet-screen) {
+		padding-bottom: 78px;
+	}
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		width: 640px;
+		height: 100%;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		background: url('../../assets/images/prob-bg.webp') no-repeat top right -57%;
+		background-size: 740px;
+		border-radius: 20px;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+
+		@media screen and (min-width: $mobile-screen) {
+			width: 1280px;
+			background-size: 1280px;
+			background-position: top center;
+		}
+	}
+
+	.container {
+		position: relative;
+		z-index: 1;
+
+		& > .content:first-child {
+			padding-bottom: 34px;
+
+			@media screen and (min-width: $mobile-screen) {
+				padding-bottom: 100px;
+				max-width: 450px;
+			}
+
+			p {
+				margin-bottom: 0;
+			}
+		}
+
+		.feature {
+			background-color: rgba($color: $black-4, $alpha: 0.9);
+		}
+	}
+}
+
+.problem-device-figures {
+	position: absolute;
+	width: 640px;
+	height: 100%;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+
+	@media screen and (min-width: $mobile-screen) {
+		width: 1280px;
+	}
+
+	img {
+		position: absolute;
+
+		&:first-child {
+			width: 81px;
+			top: 343px;
+			left: 23%;
+
+			@media screen and (min-width: $mobile-screen) {
+				width: 110px;
+				top: 611px;
+				left: 49%;
+			}
+		}
+
+		&:nth-child(2) {
+			width: 101px;
+			top: 116px;
+			left: 55%;
+
+			@media screen and (min-width: $mobile-screen) {
+				width: 130px;
+				top: 220px;
+				left: 71%;
+			}
+		}
+
+		&:nth-child(3) {
+			width: 112px;
+			left: 24%;
+			top: 222px;
+
+			@media screen and (min-width: $mobile-screen) {
+				width: 154px;
+				left: 64%;
+				top: 387px;
+			}
+		}
+
+		&:last-child {
+			width: 163px;
+			top: 87px;
+			left: 14%;
+
+			@media screen and (min-width: $mobile-screen) {
+				width: 255px;
+				top: 236px;
+				left: 45%;
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+// Mixin to apply visibility and interaction styles to quiz steps.
+// It ensures the step is visible (opacity: 1), clickable (pointer-events: auto),
+// and animates the single-choice elements by scaling and showing them.
+
+@mixin quiz-step-style {
+  opacity: 1;
+  pointer-events: auto;
+
+  .button-wrapper {
+    opacity: 1;
+  }
+
+  .single-choice {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

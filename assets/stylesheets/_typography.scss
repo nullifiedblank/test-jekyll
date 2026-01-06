@@ -1,0 +1,242 @@
+body {
+  color: $white;
+  font-family: $base-font-family, sans-serif;
+  font-size: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: normal;
+  font-stretch: normal;
+  text-transform: none;
+  font-weight: 200;
+
+  strong {
+    font-family: $heading-strong-family;
+    font-weight: normal;
+  }
+}
+
+h1,
+h2 {
+  font-size: 34px;
+  line-height: 1.12;
+  letter-spacing: -1.36px;
+  margin-bottom: 21px;
+
+  @media screen and (min-width: $mobile-screen) {
+    font-size: 54px;
+    line-height: 1.02;
+    letter-spacing: -2.08px;
+    margin-bottom: 30px;
+  }
+
+  strong {
+    font-size: 40px;
+    letter-spacing: -2px;
+
+    @media screen and (min-width: $mobile-screen) {
+      font-size: 60px;
+      letter-spacing: -3px;
+    }
+  }
+
+  #home-product & {
+    color: black;
+  }
+
+  .quiz-last-step & {
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 1.28;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+
+    @media screen and (min-width: $mobile-screen) {
+      font-size: 32px;
+      letter-spacing: -0.96px;
+      margin-bottom: 30px;
+      line-height: 1.22;
+    }
+
+    strong {
+      font-size: 42px;
+      letter-spacing: -2.1px;
+
+      @media screen and (min-width: $mobile-screen) {
+        font-size: 36px;
+        letter-spacing: -1.08px;
+      }
+    }
+  }
+}
+
+h3 {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.57px;
+
+  #home-product .container & {
+    color: black;
+  }
+
+  .module-modal .content & {
+    font-size: 25px;
+    line-height: 1.22;
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+    color: $white;
+
+    @media screen and (min-width: $mobile-screen) {
+      font-size: 32px;
+      font-weight: 200;
+      letter-spacing: -0.64px;
+    }
+  }
+}
+
+p {
+  font-weight: normal;
+  font-size: 18px;
+  letter-spacing: -0.54px;
+  line-height: 1.44;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $mobile-screen) {
+    font-size: 18px;
+    letter-spacing: -0.54px;
+    margin-bottom: 30px;
+  }
+
+  #home-product .container & {
+    color: black;
+  }
+
+  .quiz-last-step &,
+  .module-modal .content & {
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: normal;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: $mobile-screen) {
+      margin-bottom: 30px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .module-modal .content & {
+    color: $white;
+  }
+
+  .quiz-last-step & {
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1.31;
+    letter-spacing: -0.32px;
+    margin-bottom: 17px;
+    color: rgba($color: $white, $alpha: 0.7);
+
+    @media screen and (min-width: $tablet-screen) {
+      margin-bottom: 77px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .speech-bubble & {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.29;
+    color: $black-5;
+    margin-bottom: 0;
+    text-wrap: pretty;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $white;
+
+  nav & {
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: $black-2;
+    transition: color 0.1s ease-in-out;
+
+    @media screen and (min-width: $tablet-screen) {
+      text-shadow: 0 0 30px $text-shadow;
+      color: $white;
+
+      &:hover {
+        color: darken($color: $white, $amount: 20);
+      }
+    }
+  }
+
+  nav .is-mobile & {
+    font-size: 29px;
+    font-family: $heading-strong-family;
+    line-height: 1.72;
+    letter-spacing: -1.45px;
+  }
+
+  nav .nav-items-dropdown-content .col li:first-child & {
+    font-weight: 600;
+
+    @media screen and (min-width: $tablet-screen) {
+      font-family: $heading-strong-family;
+      font-size: 29px;
+      letter-spacing: -1.45px;
+    }
+  }
+}
+
+.subtitle {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+
+  @media screen and (min-width: $mobile-screen) {
+    margin-bottom: 23px;
+  }
+}
+
+.quote-author-name {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.96px;
+  line-height: normal;
+  color: rgba($color: $white, $alpha: 0.8);
+  text-transform: uppercase;
+}
+
+blockquote {
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: rgba($color: $white, $alpha: 0.8);
+  margin-bottom: 15px;
+  text-wrap: pretty;
+}

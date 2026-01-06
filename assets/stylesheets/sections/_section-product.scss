@@ -1,0 +1,44 @@
+#home-product {
+	padding-top: 386px;
+	padding-bottom: 54px;
+	background-image: url('../../assets/images/prod-bg.webp');
+
+	@media screen and (min-width: $tablet-screen) {
+		padding-top: 290px;
+		padding-bottom: 74px;
+	}
+
+	.container {
+		& > .content:first-child {
+			max-width: 530px;
+			padding-bottom: 36px;
+
+			@media screen and (min-width: $mobile-screen) {
+				padding-bottom: 62px;
+			}
+		}
+
+		.features {
+			max-width: 560px;
+			margin-bottom: 0;
+		}
+	}
+
+	.modal-wrapper {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		right: 0;
+		background: url('../../assets/images/prod-figure.webp') no-repeat top -60px center;
+		background-size: 276px;
+
+		@media screen and (min-width: calc($laptop-screen - 1px)) {
+			width: calc(100% - 560px);
+			background-size: 576px;
+			background-position: top right 30px;
+			left: unset;
+			transform: unset;
+		}
+	}
+}

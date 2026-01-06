@@ -1,0 +1,55 @@
+//Testimonials carousel
+@keyframes carousel-animate {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(200%);
+  }
+  3%,
+  25% {
+    visibility: visible;
+    opacity: 0.5;
+    transform: translateX(100%);
+  }
+  28%,
+  50% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-16px);
+  }
+  53%,
+  75% {
+    visibility: visible;
+    opacity: 0;
+    transform: translateX(calc(-100% - 16px));
+  }
+  78% {
+    visibility: visible;
+    opacity: 0;
+    transform: translateX(-200%);
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-200%);
+  }
+}
+
+//Move items up / down
+@keyframes mover {
+  0% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes alt-mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}

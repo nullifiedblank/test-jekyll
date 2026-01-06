@@ -1,0 +1,58 @@
+#home-solution {
+	padding-top: 395px;
+	padding-bottom: 54px;
+	background-image: url('../../assets/images/sol-bg.webp');
+	background-color: $green-2;
+	background-position: top center;
+	background-size: 900px;
+
+	@media screen and (min-width: $mobile-screen) {
+		background-size: cover;
+		background-position: top -184px center;
+	}
+
+	@media screen and (min-width: $tablet-screen) {
+		padding-bottom: 118px;
+	}
+
+	.container {
+		position: relative;
+		z-index: 2;
+		& > .content:first-child {
+			padding-bottom: 34px;
+
+			@media screen and (min-width: $mobile-screen) {
+				padding-bottom: 165px;
+				max-width: 530px;
+			}
+
+			h2 {
+				max-width: 64%;
+
+				@media screen and (min-width: $tablet-screen) {
+					max-width: unset;
+				}
+			}
+
+			p {
+				margin-bottom: 0;
+
+				@media screen and (min-width: $mobile-screen) {
+					max-width: 80%;
+				}
+
+				@media screen and (min-width: $tablet-screen) {
+					max-width: unset;
+				}
+			}
+		}
+
+		.features {
+			max-width: 990px;
+		}
+
+		.feature {
+			background-color: rgba($color: $green, $alpha: 0.9);
+		}
+	}
+}

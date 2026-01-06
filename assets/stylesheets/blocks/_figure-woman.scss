@@ -1,0 +1,219 @@
+.fig-container {
+  display: none;
+  @media screen and (min-width: $mobile-screen) {
+    display: block;
+  }
+}
+
+.fig-woman {
+  position: absolute;
+  top: 200px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  transition: 1s top ease-in-out;
+  transform: translate(73px, 0px);
+  width: 155px;
+  height: 291px;
+
+  @media screen and (min-width: $mobile-screen) {
+    width: 226px;
+    height: 454px;
+    transform: translate(174px, 139px);
+  }
+
+  .on-load & {
+    transition: unset;
+  }
+
+  img {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &.show-pi {
+    .pi-fig {
+      display: inline;
+    }
+
+    .prob-fig {
+      display: none !important;
+    }
+  }
+
+  &.show-pi-to-prob {
+    .pi-to-prob-fig {
+      display: inline;
+    }
+
+    .pi-fig {
+      display: none !important;
+    }
+    .prob-fig {
+      display: none !important;
+    }
+  }
+
+  &.show-prob {
+    .pi-fig {
+      display: none !important;
+    }
+
+    .prob-fig {
+      display: inline;
+    }
+  }
+
+  &.show-prob-to-pi {
+    transition-duration: 0.8s;
+    .prob-to-pi-fig {
+      display: inline;
+    }
+
+    .pi-fig {
+      display: none !important;
+    }
+
+    .prob-fig {
+      display: none !important;
+    }
+
+    &.show-pi-to-prob {
+      .prob-to-pi-fig,
+      .pi-to-prob-fig {
+        display: none;
+      }
+
+      .pi-fig {
+        display: inline !important;
+      }
+    }
+    &.show-sol-to-prob {
+      .sol-to-prob-fig {
+        display: none !important;
+      }
+    }
+  }
+
+  &.show-prob-to-sol {
+    .prob-to-sol-fig {
+      display: inline;
+    }
+
+    .pi-fig {
+      display: none !important;
+    }
+    .prob-fig {
+      display: none !important;
+    }
+    .sol-fig {
+      display: none !important;
+    }
+
+    &.show-pi-to-prob {
+      .pi-to-prob-fig {
+        display: none !important;
+      }
+    }
+  }
+
+  &.show-sol {
+    .pi-fig {
+      display: none !important;
+    }
+    .prob-fig {
+      display: none !important;
+    }
+
+    .sol-fig {
+      display: inline;
+    }
+  }
+
+  &.show-sol-to-prob {
+    .pi-fig {
+      display: none !important;
+    }
+    .prob-fig {
+      display: none !important;
+    }
+
+    .sol-fig {
+      display: none !important;
+    }
+
+    .sol-to-prob-fig {
+      display: inline;
+    }
+
+    &.show-prob-to-sol {
+      .prob-to-sol-fig,
+      .sol-to-prob-fig {
+        display: none !important;
+      }
+
+      .sol-fig {
+        display: inline !important;
+      }
+    }
+
+    &.show-prob-to-pi {
+      .prob-to-sol-fig,
+      .sol-to-prob-fig {
+        display: none !important;
+      }
+    }
+  }
+}
+
+body:has(#home-hero.is-visible):not(:has(#home-problem.is-visible)) .fig-woman {
+  .pi-fig {
+    display: inline;
+  }
+}
+
+body:has(#home-problem.is-visible):not(:has(#home-solution.is-visible)):not(:has(#home-solution.is-visible)) .fig-woman {
+  .prob-fig {
+    display: inline;
+  }
+}
+
+body:has(#home-solution.is-visible):not(:has(#home-product.is-visible)) .fig-woman,
+body:has(#home-product.is-visible) .fig-woman {
+  .sol-fig {
+    display: inline;
+  }
+}
+
+//Woman Figure on mobile screens
+.figure-woman-sol,
+.figure-woman-prob,
+.figure-woman-pi {
+  position: absolute;
+  width: 165px;
+  height: 310px;
+  z-index: 2;
+
+  @media screen and (min-width: $mobile-screen) {
+    display: none;
+  }
+}
+
+.figure-woman-sol {
+  top: 160px;
+  right: 0;
+}
+
+.figure-woman-prob {
+  top: 93px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.figure-woman-pi {
+  top: 81px;
+  left: 50%;
+  transform: translateX(-50%);
+}
