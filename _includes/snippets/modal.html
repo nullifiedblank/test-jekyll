@@ -1,0 +1,14 @@
+<button class="modal-trigger modal-trigger-{{ include.modal }}">
+  <span class="horizontal"></span>
+  <span class="vertical"></span>
+</button>
+<div class="module-modal module-modal-{{ include.modal }}">
+  <div class="content">
+    <figure>
+      <img src="{{ include.file | default: '../../assets/images/placeholder-image.jpg' }}"
+        alt="{{ include.alt | default: 'Modal image' }}">
+    </figure>
+    <h3>{{ include.title }}</h3>
+    <p>{{ include.content }}</p>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<section id="section-quiz" class="group is-step-0 show-q">
+  <div class="container">
+    <div class="content">
+      <span class="subtitle">The quiz</span>
+      <h2>Discover <strong>how much</strong> EMF exposure you have in your daily life</h2>
+    </div>
+    <div class="quiz">
+      <figure id="quiz-figure">
+        <img src="../assets/images/woman-q.webp" class="figure-q" alt="Thinking Woman Figure ">
+        <img src="../assets/images/woman-a.webp" class="figure-a" alt="Excited Woman Figure ">
+        <img src="../assets/images/woman-q2a.webp" class="figure-q-to-a" alt="Thinking Woman Figure ">
+        <img src="../assets/images/woman-q2a2q-one-time.webp" class="figure-q-to-a-to-q"
+          alt="Woman Figure Raise Hands ">
+      </figure>
+      <div class="quiz-steps" data-step="step-0">
+        {% include blocks/quiz-questions.html %}
+        <div class="quiz-step quiz-start quiz-step-0">
+          <div class="content">
+            <div class="speech-bubble quiz-question-step-0">
+              <p>
+                Answer some short interactive questions and get immediate personalised steps to improve your well-being,
+                productivity, and focus. Are you ready?
+              </p>
+            </div>
+            <div class="button-wrapper">
+              <button class="button button-primary is-icon" data-step-trigger="step-1">Start the quiz
+                <img src="../assets/images/icon-arrow.svg" alt="Arrow Icon">
+              </button>
+            </div>
+          </div>
+        </div>
+        {% include blocks/quiz-form.html %}
+        <div class="quiz-step quiz-step-11">
+          <div class="content">
+            <div class="button-wrapper">
+              <button type="button" class="button button-primary is-icon" data-step-trigger="step-12">Yes Please
+                <img src="../assets/images/icon-arrow.svg" alt="Arrow Icon">
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="quiz-step quiz-step-12 quiz-last-step">
+          <div class="content">
+            <div class="download-box">
+              <div class="download-box-content">
+                <span class="subtitle">Free pdf</span>
+                <h2 class="download-box-title">Title of this document based on their entries/inputs
+                  here</h2>
+                <p class="download-box-lead">Learn how to ABC without XYZ with this downloadable guide, selected
+                  specifically for people who
+                  experience challenges like you described. Words to that effect anyway.</p>
+
+                <div class="form-wrapper">
+                  {% include blocks/download-form.html %}
+                  <div class="benefits">
+                    <div>
+                      <img src="../assets/images/icon-fingerprint.svg" width="27" height="27" alt="Fingerprint Icon"
+                        class="icon">
+                      <span>Unique to you</span>
+                    </div>
+                    <div>
+                      <img src="../assets/images/icon-heart.svg" alt="Heart Icon" class="icon" width="27" height="27">
+                      <span>Totally free</span>
+                    </div>
+                    <div>
+                      <img src="../assets/images/icon-happy.svg" width="27" alt="Happy Face Icon" class="icon"
+                        height="27">
+                      <span>Feel the difference</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="download-box-bg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
