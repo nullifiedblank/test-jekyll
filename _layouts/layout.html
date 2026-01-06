@@ -1,0 +1,42 @@
+---
+---
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Jekyll Test</title>
+
+  <meta charset="utf-8">
+  <meta content="ie=edge" http-equiv="x-ua-compatible">
+  <meta name="handheldfriendly" content="true">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+  <meta name="description" content="Jekyll Test">
+  <meta name="robots" content="index, follow">
+  <meta property="og:site_name" content="Jekyll Test"">
+  <meta property=" og:title" content="Jekyll Test"">
+  <meta property=" og:description" content="Jekyll Test"">
+  <!-- add correct image here -->
+  <meta property=" og:image" content="{{site.baseurl}}/assets/images/hero.webp">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="website">
+  <meta name="twitter:title" content="Jekyll Test">
+  <meta name="twitter:description" content="Jekyll Test">
+  <!-- add correct image here -->
+  <meta name="twitter:image" content="{{ site.baseurl }}/assets/images/hero.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="Jekyll Test">
+  <link rel="canonical" href="{{ site.baseurl }}{{ page.url }}">
+  <link rel="stylesheet" type="text/css" href="assets/stylesheets/styles.css?v=1">
+</head>
+
+<body>
+  <header>
+    {% include /navigation/main-nav.html %}
+  </header>
+  <main>
+    {{ content }}
+  </main>
+  <script src="/assets/js/production.min.js" defer></script>
+</body>
+
+</html>

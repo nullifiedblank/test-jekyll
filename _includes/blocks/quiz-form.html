@@ -1,0 +1,534 @@
+<form autocomplete="off" name="quiz">
+  <div class="quiz-step quiz-step-1">
+    <div class="content">
+      <ul class="choices">
+        <li class="single-choice">
+          <input type="radio" name="step-1" class="option" id="choice-1-1" value="q-1-a">
+          <label for="choice-1-1">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q1a1.svg %}</span>
+              <span class="choice-title">None</span>
+            </div>
+            <span class="choice-description">I don’t experience this, or it’s no problem at all.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" name="step-1" class="option" id="choice-1-2" value="q-1-b">
+          <label for="choice-1-2">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q1a2.svg %}</span>
+              <span class="choice-title">Mild</span>
+            </div>
+            <span class="choice-description">I suppose I get this, but it’s very infrequent.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" name="step-1" id="choice-1-3" class="option" value="q-1-c">
+          <label for="choice-1-3">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q1a3.svg %}</span>
+              <span class="choice-title">Moderate</span>
+            </div>
+            <span class="choice-description">I get this somewhat frequently.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" name="step-1" id="choice-1-4" class="option" value="q-1-d">
+          <label for="choice-1-4">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q1a4.svg %}</span>
+              <span class="choice-title">Severe</span>
+            </div>
+            <span class="choice-description">I get this severely or almost constantly.</span>
+          </label>
+        </li>
+      </ul>
+      <div class="button-wrapper">
+        <button type="button" class="button button-primary is-icon" data-step-trigger="step-2" disabled>Continue
+          <img src="../assets/images/icon-arrow.svg" alt="Arrow Icon">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-step quiz-step-2">
+    <div class="content">
+      <ul class="choices">
+        <li class="single-choice">
+          <input type="radio" name="step-2" id="choice-2-1" class="option" value="q-2-a">
+          <label for="choice-2-1">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q2a1.svg %}</span>
+              <span class="choice-title">None</span>
+            </div>
+            <span class="choice-description">I don’t experience this, or it’s no problem at all.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-2-2" name="step-2" class="option" value="q-2-b">
+          <label for="choice-2-2">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q2a2.svg %}</span>
+              <span class="choice-title">Mild</span>
+            </div>
+            <span class="choice-description">I suppose I get this, but it’s very infrequent.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-2-3" name="step-2" class="option" value="q-2-c">
+          <label for="choice-2-3">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q2a3.svg %}</span>
+              <span class="choice-title">Moderate</span>
+            </div>
+            <span class="choice-description">I get this somewhat frequently.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-2-4" name="step-2" class="option" value="q-2-d">
+          <label for="choice-2-4">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q2a4.svg %}</span>
+              <span class="choice-title">Severe</span>
+            </div>
+            <span class="choice-description">I get this severely or almost constantly.</span>
+          </label>
+        </li>
+      </ul>
+      <div class="button-wrapper">
+        <button type="button" class="button button-primary is-icon" data-step-trigger="step-3" disabled>Continue
+          <img src="../assets/images/icon-arrow.svg" alt="Arrow Icon">
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-step quiz-step-3">
+    <div class="content">
+      <ul class="choices">
+        <li class="single-choice">
+          <input type="radio" name="step-3" id="choice-3-1" class="option" value="q-3-a">
+          <label for="choice-3-1">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q3a1.svg %}</span>
+              <span class="choice-title">No</span>
+            </div>
+            <span class="choice-description">I don’t experience this, or it’s no problem at all.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-3-2" name="step-3" class="option" value="q-3-b">
+          <label for="choice-3-2">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q3a2.svg %}</span>
+              <span class="choice-title">Mild</span>
+            </div>
+            <span class="choice-description">I suppose I do, but it’s very infrequent.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-3-3" name="step-3" class="option" value="q-3-c">
+          <label for="choice-3-3">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q3a3.svg %}</span>
+              <span class="choice-title">Moderate</span>
+            </div>
+            <span class="choice-description">I get this somewhat frequently.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-3-4" name="step-3" class="option" value="q-3-d">
+          <label for="choice-3-4">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q3a4.svg %}</span>
+              <span class="choice-title">Severe</span>
+            </div>
+            <span class="choice-description">I get this severely or almost constantly.</span>
+          </label>
+        </li>
+      </ul>
+      <div class="button-wrapper">
+        <button type="button" class="button button-primary is-icon" data-step-trigger="step-4" disabled>Continue
+          <img src="../assets/images/icon-arrow.svg" alt="Arrow Icon">
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-step quiz-step-4">
+    <div class="content">
+      <ul class="choices">
+        <li class="single-choice">
+          <input type="radio" name="step-4" id="choice-4-1" class="option" value="q-4-a">
+          <label for="choice-4-1">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q4a1.svg %}</span>
+              <span class="choice-title">No</span>
+            </div>
+            <span class="choice-description">I don’t experience this, or it’s no problem at all.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-4-2" name="step-4" class="option" value="q-4-b">
+          <label for="choice-4-2">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q4a2.svg %}</span>
+              <span class="choice-title">Mild</span>
+            </div>
+            <span class="choice-description">I suppose I do, but it’s very infrequent.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-4-3" name="step-4" class="option" value="q-4-c">
+          <label for="choice-4-3">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q4a3.svg %}</span>
+              <span class="choice-title">Moderate</span>
+            </div>
+            <span class="choice-description">I get this somewhat frequently.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-4-4" name="step-4" class="option" value="q-4-d">
+          <label for="choice-4-4">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q4a4.svg %}</span>
+              <span class="choice-title">Severe</span>
+            </div>
+            <span class="choice-description">I get this severely or almost constantly.</span>
+          </label>
+        </li>
+      </ul>
+      <div class="button-wrapper">
+        <button type="button" class="button button-primary is-icon" data-step-trigger="step-5" disabled>Continue
+          <img src="../assets/images/icon-arrow.svg" alt="Arrow Icon">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-step quiz-step-5">
+    <div class="content">
+      <ul class="choices">
+        <li class="single-choice">
+          <input type="radio" name="step-5" id="choice-5-1" class="option" value="q-5-a">
+          <label for="choice-5-1">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q5a1.svg %}</span>
+              <span class="choice-title">No</span>
+            </div>
+            <span class="choice-description">I don’t experience this, or it’s no problem at all.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-5-2" name="step-5" class="option" value="q-5-b">
+          <label for="choice-5-2">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q5a2.svg %}</span>
+              <span class="choice-title">Mild</span>
+            </div>
+            <span class="choice-description">I suppose I do, but it’s very infrequent.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-5-3" name="step-5" class="option" value="q-5-c">
+          <label for="choice-5-3">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q5a3.svg %}</span>
+              <span class="choice-title">Moderate</span>
+            </div>
+            <span class="choice-description">I get this somewhat frequently.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-5-4" name="step-5" class="option" value="q-5-d">
+          <label for="choice-5-4">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q5a4.svg %}</span>
+              <span class="choice-title">Severe</span>
+            </div>
+            <span class="choice-description">I get this severely or almost constantly.</span>
+          </label>
+        </li>
+      </ul>
+      <div class="button-wrapper">
+        <button type="button" class="button button-primary is-icon" data-step-trigger="step-6" disabled>Continue
+          <img src="../assets/images/icon-arrow.svg" alt="Arrow Icon">
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-step quiz-step-6">
+    <div class="content">
+      <ul class="choices">
+        <li class="single-choice">
+          <input type="radio" name="step-6" id="choice-6-1" class="option" value="q-6-a">
+          <label for="choice-6-1">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q6a1.svg %}</span>
+              <span class="choice-title">No</span>
+            </div>
+            <span class="choice-description">I don’t experience this, or it’s no problem at all.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-6-2" name="step-6" class="option" value="q-6-b">
+          <label for="choice-6-2">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q6a2.svg %}</span>
+              <span class="choice-title">Mild</span>
+            </div>
+            <span class="choice-description">I suppose I do, but it’s very infrequent.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-6-3" name="step-6" class="option" value="q-6-c">
+          <label for="choice-6-3">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q6a3.svg %}</span>
+              <span class="choice-title">Moderate</span>
+            </div>
+            <span class="choice-description">I get this somewhat frequently.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-6-4" name="step-6" class="option" value="q-6-d">
+          <label for="choice-6-4">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q6a4.svg %}</span>
+              <span class="choice-title">Severe</span>
+            </div>
+            <span class="choice-description">I get this severely or almost constantly.</span>
+          </label>
+        </li>
+      </ul>
+      <div class="button-wrapper">
+        <button type="button" class="button button-primary is-icon" data-step-trigger="step-7" disabled>Continue
+          <img src="../assets/images/icon-arrow.svg" alt="Arrow Icon">
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-step quiz-step-7">
+    <div class="content">
+      <ul class="choices">
+        <li class="single-choice">
+          <input type="radio" name="step-7" id="choice-7-1" class="option" value="q-7-a">
+          <label for="choice-7-1">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q7a1.svg %}</span>
+              <span class="choice-title">
+                No idea
+              </span>
+            </div>
+            <span class="choice-description">I don’t know where (or what) they are.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-7-2" name="step-7" class="option" value="q-7-b">
+          <label for="choice-7-2">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q7a2.svg %}</span>
+              <span class="choice-title">
+                Vague idea
+              </span>
+            </div>
+            <span class="choice-description">I’m not sure but I have a rough idea.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-7-3" name="step-7" class="option" value="q-7-c">
+          <label for="choice-7-3">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q7a3.svg %}</span>
+              <span class="choice-title">
+                Very good idea
+              </span>
+            </div>
+            <span class="choice-description">I’ve looked this up and think I know.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-7-4" name="step-7" class="option" value="q-7-d">
+          <label for="choice-7-4">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q7a4.svg %}</span>
+              <span class="choice-title">
+                I know precisely
+              </span>
+            </div>
+            <span class="choice-description">I did my research and pin-pointed it exactly.</span>
+          </label>
+        </li>
+      </ul>
+      <div class="button-wrapper">
+        <button type="button" class="button button-primary is-icon" data-step-trigger="step-8" disabled>Continue
+          <img src="../assets/images/icon-arrow.svg" alt="Arrow Icon">
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-step quiz-step-8">
+    <div class="content">
+      <ul class="choices">
+        <li class="single-choice">
+          <input type="checkbox" id="choice-8-1" name="step-8" class="option" value="q-8-a">
+          <label for="choice-8-1">
+            <span class="choice-title">
+              5G
+            </span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="checkbox" id="choice-8-2" name="step-8" class="option" value="q-8-b">
+          <label for="choice-8-2">
+            <span class="choice-title">
+              Cell towers
+            </span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="checkbox" id="choice-8-3" name="step-8" class="option" value="q-8-c">
+          <label for="choice-8-3">
+            <span class="choice-title">
+              Phones & computers
+            </span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="checkbox" id="choice-8-4" name="step-8" class="option" value="q-8-d">
+          <label for="choice-8-4">
+            <span class="choice-title">
+              Smart meters
+            </span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="checkbox" id="choice-8-5" name="step-8" class="option" value="q-8-e">
+          <label for="choice-8-5">
+            <span class="choice-title">
+              Wi-Fi networks
+            </span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="checkbox" id="choice-8-6" name="step-8" class="option" value="q-8-f">
+          <label for="choice-8-6">
+            <span class="choice-title">
+              Hybrid cars or EVs
+            </span>
+          </label>
+        </li>
+      </ul>
+      <div class="button-wrapper">
+        <button type="button" class="button button-primary is-icon" data-step-trigger="step-9" disabled>Continue
+          <img src="../assets/images/icon-arrow.svg" alt="Arrow Icon">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-step quiz-step-9">
+    <div class="content">
+      <ul class="choices">
+        <li class="single-choice">
+          <input type="radio" name="step-9" id="choice-9-1" class="option" value="q-9-a">
+          <label for="choice-9-1">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q9a1.svg %}</span>
+              <span class="choice-title">
+                None or rarely
+              </span>
+            </div>
+            <span class="choice-description">I don’t really fly at all.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-9-2" name="step-9" class="option" value="q-9-b">
+          <label for="choice-9-2">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q9a2.svg %}</span>
+              <span class="choice-title">
+                Sometimes, short
+              </span>
+            </div>
+            <span class="choice-description">I don’t fly often, and the flights are under 3 hours.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-9-3" name="step-9" class="option" value="q-9-c">
+          <label for="choice-9-3">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q9a3.svg %}</span>
+              <span class="choice-title">
+                Sometimes, long
+              </span>
+            </div>
+            <span class="choice-description">I don’t fly often, but the flights are over 3 hours.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-9-4" name="step-9" class="option" value="q-9-d">
+          <label for="choice-9-4">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q9a4.svg %}</span>
+              <span class="choice-title">
+                Regular
+              </span>
+            </div>
+            <span class="choice-description">I fly regularly, or I fly very long distance.</span>
+          </label>
+        </li>
+      </ul>
+      <div class="button-wrapper">
+        <button type="button" class="button button-primary is-icon" data-step-trigger="step-10" disabled>Continue
+          <img src="../assets/images/icon-arrow.svg" alt="Arrow Icon">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-step quiz-step-10">
+    <div class="content">
+      <ul class="choices">
+        <li class="single-choice">
+          <input type="radio" name="step-10" id="choice-10-1" class="option" value="q-10-a">
+          <label for="choice-10-1">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q10a1.svg %}</span>
+              <span class="choice-title">
+                Yes
+              </span>
+            </div>
+            <span class="choice-description">I’ve been diagnosed, or suspect I have it.</span>
+          </label>
+        </li>
+        <li class="single-choice">
+          <input type="radio" id="choice-10-2" name="step-10" class="option" value="q-10-b">
+          <label for="choice-10-2">
+            <div class="choice-wrapper">
+              <span class="choice-icon">{% include/quiz-icons/q9a2.svg %}</span>
+              <span class="choice-title">
+                No
+              </span>
+            </div>
+            <span class="choice-description">I don’t have (or don’t think I have) it.</span>
+          </label>
+        </li>
+      </ul>
+      <div class="button-wrapper">
+        <button type="button" class="button button-primary is-icon" data-step-trigger="step-11" disabled>Continue
+          <img src="../assets/images/icon-arrow.svg" alt="Arrow Icon">
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
