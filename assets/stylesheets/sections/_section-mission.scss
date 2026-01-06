@@ -1,0 +1,124 @@
+#mission {
+  width: 100%;
+  max-width: 1280px;
+  min-height: 1089px;
+  padding: 200px 60px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(rgba(246, 234, 189, 0.2), rgba(246, 234, 189, 0.2)),
+    url('../images/mission-bg.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  // Use block display on #mission, let inner container handle flex
+  display: block;
+
+  .mission-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    position: relative;
+  }
+}
+
+.mission-card {
+  width: 550px;
+  height: 673px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 40px 60px;
+  gap: 30px;
+  position: relative; // Context for absolute signature
+
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  border-radius: 20px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  z-index: 10;
+
+  h2 {
+    font-family: $heading-strong-family;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 39px;
+    letter-spacing: -0.03em;
+    color: $white;
+
+    width: 100%;
+    max-width: 464.2px;
+    margin-bottom: 0;
+  }
+
+  .mission-text {
+    p {
+      font-family: $base-font-family;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: $white;
+      hanging-punctuation: first last;
+
+      width: 100%;
+      max-width: 470px;
+      white-space: pre-line;
+    }
+  }
+
+  .mission-signature {
+    position: absolute;
+    width: 231px;
+    height: 143px;
+    left: 285px;
+    top: 505.5px;
+
+    background: url('../images/mission-figure.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    z-index: 5;
+  }
+}
+
+// Responsive
+@media screen and (max-width: $laptop-screen) {
+  #mission {
+    padding: 100px 20px;
+    height: auto;
+    min-height: auto;
+
+    .mission-container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .mission-card {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+
+    .mission-signature {
+      position: relative;
+      left: auto;
+      top: auto;
+      margin-top: 20px;
+      align-self: center; // Center signature on mobile
+    }
+  }
+}
