@@ -2,59 +2,72 @@
   width: 100%;
   max-width: 1280px;
   min-height: 1089px;
-  padding: 200px 60px;
+  // Padding removed or adjusted because content is now absolute over aspect-ratio background
+  // Keeping padding effectively on the container? Or just rely on flex layout
   border-radius: 20px;
   position: relative;
   overflow: hidden;
-
-  background:
-    linear-gradient(rgba(246, 234, 189, 0.2), rgba(246, 234, 189, 0.2)),
-    url('../images/mission-bg.webp');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  // Use block display on #mission, let inner container handle flex
   display: block;
   margin-bottom: 100px;
 
-  .mission-figure {
+  // The wrapper that maintains the aspect ratio and holds all background elements
+  .bg-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2550 / 2330;
+    overflow: hidden;
+    z-index: 1;
+    // To respect the original min-height, we set it here.
+    // This forces width to increase to maintain aspect ratio if height < 1089px
+    min-height: 1089px;
+
+    .bg-base, .bg-figure {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    // mission-figure.webp (big figure)
+    .bg-figure {
+      z-index: 1;
+    }
+
+    // mission-bg.webp (base)
+    .bg-base {
+      z-index: 0;
+    }
+
+    // The overlay (mission-fig2.webp) locked to the background
+    .overlay {
+      position: absolute;
+      top: 75%;
+      left: 25%;
+      width: 6.75%; // (172 / 2550) * 100
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      pointer-events: none;
+      height: auto;
+    }
+  }
+
+  .mission-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('../images/mission-figure.webp');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .mission-fig2 {
-    position: absolute;
-    top: 75%;
-    left: 25%;
-    transform: translate(-50%, -50%);
-    width: 172px;
-    height: 175px;
-    background: url('../images/mission-fig2.webp');
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  .mission-container {
-    width: 100%;
-    height: 100%;
+    padding: 200px 60px; // Moved padding here
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-start;
-    position: relative;
-    z-index: 2;
+    z-index: 3;
+    pointer-events: none; // Allow clicks to pass to bg if needed, but card needs pointer-events auto
   }
 }
 
@@ -67,6 +80,7 @@
   padding: 40px 40px 60px;
   gap: 30px;
   position: relative; // Context for absolute signature
+  pointer-events: auto; // Restore pointer events
 
   background: rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.15);
@@ -114,15 +128,30 @@
 // Responsive
 @media screen and (max-width: $laptop-screen) {
   #mission {
-    padding: 100px 20px;
+    padding: 0;
     height: auto;
     min-height: auto;
     margin-bottom: 50px;
 
+    .bg-wrapper {
+      min-height: auto;
+    }
+
     .mission-container {
+      padding: 100px 20px;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      position: relative; // Reset position to allow flow if needed, or keep absolute?
+      // If we keep absolute, and the wrapper shrinks, content might overflow.
+      // But if we want the background to cover the content, the wrapper must be absolute or the content absolute.
+      // In the desktop version, content is absolute over the fixed-aspect wrapper.
+      // On mobile, if we let height: auto, the wrapper aspect ratio dictates height.
+      // If content is taller than aspect ratio height, it will overflow.
+      // So on mobile, maybe we want the Wrapper to cover the CONTENT?
+      // But the requirement was "locked to background".
+      // If we let the background cover the content, the aspect ratio might be broken (cropped).
+      // Let's stick to the aspect ratio logic for now, but ensure content is padded.
     }
   }
 
@@ -130,5 +159,6 @@
     width: 100%;
     max-width: 550px;
     height: auto;
+    pointer-events: auto; // Restore interactivity
   }
 }
