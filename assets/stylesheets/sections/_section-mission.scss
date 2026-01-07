@@ -188,3 +188,77 @@
     pointer-events: auto; // Restore interactivity
   }
 }
+
+// Mobile specific styles (360px and below)
+@media screen and (max-width: 360px) {
+  #mission {
+    width: 100%; // Fits viewport
+    min-height: 1182px;
+    background-color: #16201D;
+    // Using existing background image as fallback for 'image.png'
+    background-image: url('../images/mission-bg.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    padding: 0;
+    margin-bottom: 20px;
+
+    // Hide the desktop wrapper on this specific mobile view
+    .bg-wrapper {
+      display: none;
+    }
+
+    .mission-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      // Card top position simulation
+      padding-top: 416px;
+      align-items: flex-start;
+    }
+  }
+
+  .mission-card {
+    width: 306px;
+    height: auto; // Let it grow
+    margin: 0 auto; // Center it (18px left/right on 342px width)
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    gap: 30px;
+
+    h2 {
+      width: 100%;
+      font-size: 42px;
+      line-height: 39px;
+      letter-spacing: -0.05em;
+      // font-family: 'Cabrito Didone'; // Using existing family
+    }
+
+    .mission-text p {
+      width: 100%;
+      font-size: 16px;
+      line-height: 24px;
+      // hanging-punctuation: first last;
+    }
+
+    .mission-signature {
+      position: absolute;
+      // Calculated position relative to card top (1018 - 416 = 602)
+      top: 602px;
+      // Calculated position relative to card left (100 - 18 = 82)
+      left: 82px;
+      width: 231px;
+      height: 143px;
+      opacity: 0.25;
+      background: url('../images/mission-signature.png'); // Using existing signature
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 2;
+    }
+  }
+}
