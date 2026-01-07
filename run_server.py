@@ -2,10 +2,14 @@ import subprocess
 import sys
 import socket
 import shutil
+import os
 
 def is_port_in_use(port):
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        return s.connect_ex(('localhost', port)) == 0
+    try:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            return s.connect_ex(('localhost', port)) == 0
+    except:
+        return False
 
 def run_jekyll_server():
     port = 4000
@@ -16,23 +20,39 @@ def run_jekyll_server():
             sys.exit(1)
 
         print("Starting Jekyll server...")
-        subprocess.run(["bundle", "exec", "jekyll", "serve"], check=True)
+
+        # Try to resolve 'bundle' executable path
+        bundle_path = shutil.which("bundle")
+
+        if bundle_path:
+            command = [bundle_path, "exec", "jekyll", "serve"]
+            subprocess.run(command, check=True)
+        else:
+            # Fallback for Windows or if shutil.which fails but shell might find it
+            if sys.platform.startswith("win"):
+                print("Bundle not found via shutil.which, attempting to run via shell...")
+                # On Windows, we need to pass a string if we want the shell to resolve 'bundle' (often a bat file)
+                subprocess.run("bundle exec jekyll serve", shell=True, check=True)
+            else:
+                # POSIX fallback
+                subprocess.run(["bundle", "exec", "jekyll", "serve"], check=True)
 
     except FileNotFoundError:
-        print("Error: 'bundle' command not found. Please ensure Ruby and Bundler are installed and in your PATH.")
+        print("\nError: 'bundle' command not found.")
+        print("Please ensure Ruby and Bundler are installed and available in your system's PATH.")
         print("To install bundler, run: gem install bundler")
-        input("Press Enter to exit...")
+        input("\nPress Enter to exit...")
         sys.exit(1)
     except subprocess.CalledProcessError as e:
-        print(f"Error running Jekyll server: {e}")
-        input("Press Enter to exit...")
+        print(f"\nError running Jekyll server: {e}")
+        input("\nPress Enter to exit...")
         sys.exit(1)
     except KeyboardInterrupt:
         print("\nStopping Jekyll server...")
         sys.exit(0)
     except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-        input("Press Enter to exit...")
+        print(f"\nAn unexpected error occurred: {e}")
+        input("\nPress Enter to exit...")
         sys.exit(1)
 
 if __name__ == "__main__":
