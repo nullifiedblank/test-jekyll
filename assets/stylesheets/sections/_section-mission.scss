@@ -8,7 +8,7 @@
   position: relative;
   overflow: hidden;
   display: block;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 
   // The wrapper that maintains the aspect ratio and holds all background elements
   .bg-wrapper {
@@ -45,9 +45,9 @@
     // The overlay (mission-fig2.webp) locked to the background
     .overlay {
       position: absolute;
-      top: 75%;
-      left: 25%;
-      width: 6.75%; // (172 / 2550) * 100
+      top: 68%;
+      left: 33%;
+      width: 6.75%;
       transform: translate(-50%, -50%);
       z-index: 2;
       pointer-events: none;
@@ -135,6 +135,8 @@
 
     .bg-wrapper {
       min-height: auto;
+      position: absolute;
+      height: 100%;
     }
 
     .mission-container {
@@ -142,16 +144,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      position: relative; // Reset position to allow flow if needed, or keep absolute?
-      // If we keep absolute, and the wrapper shrinks, content might overflow.
-      // But if we want the background to cover the content, the wrapper must be absolute or the content absolute.
-      // In the desktop version, content is absolute over the fixed-aspect wrapper.
-      // On mobile, if we let height: auto, the wrapper aspect ratio dictates height.
-      // If content is taller than aspect ratio height, it will overflow.
-      // So on mobile, maybe we want the Wrapper to cover the CONTENT?
-      // But the requirement was "locked to background".
-      // If we let the background cover the content, the aspect ratio might be broken (cropped).
-      // Let's stick to the aspect ratio logic for now, but ensure content is padded.
+      position: relative;
     }
   }
 
