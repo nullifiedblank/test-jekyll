@@ -72,15 +72,15 @@
 }
 
 .mission-card {
-  width: 550px;
-  height: 673px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 40px 40px 60px;
   gap: 30px;
-  position: relative; // Context for absolute signature
-  pointer-events: auto; // Restore pointer events
+  isolation: isolate;
+
+  width: 550px;
+  height: 673px;
 
   background: rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.15);
@@ -88,12 +88,20 @@
   -webkit-backdrop-filter: blur(35px);
   border-radius: 20px;
 
+  // Inside auto layout properties
   flex: none;
   order: 0;
   flex-grow: 0;
+
+  position: relative; // Context for absolute signature
+  pointer-events: auto; // Restore pointer events
   z-index: 10;
 
   h2 {
+    width: 100%; // Responsive adjustment, original was fixed 464.2px
+    max-width: 464.2px;
+    // height: 156px; // Let height be auto for responsiveness
+
     font-family: $heading-strong-family;
     font-style: normal;
     font-weight: 600;
@@ -101,28 +109,53 @@
     line-height: 39px;
     letter-spacing: -0.03em;
     color: $white;
-
-    width: 100%;
-    max-width: 464.2px;
     margin-bottom: 0;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
   }
 
   .mission-text {
     p {
+      width: 100%; // Responsive adjustment
+      max-width: 470px;
+      // height: 395px; // Let height be auto
+
       font-family: $base-font-family;
       font-style: normal;
       font-weight: 300;
       font-size: 16px;
       line-height: 24px;
-      color: $white;
       hanging-punctuation: first last;
-
-      width: 100%;
-      max-width: 470px;
+      color: $white;
       white-space: pre-line;
+
+      flex: none;
+      order: 1;
+      align-self: stretch;
+      flex-grow: 0;
+      z-index: 1;
     }
   }
 
+  .mission-signature {
+    position: absolute;
+    width: 231px;
+    height: 143px;
+    left: 285px;
+    top: 505.5px;
+
+    background: url('../images/mission-signature.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    z-index: 2;
+  }
 }
 
 // Responsive
