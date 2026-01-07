@@ -16,6 +16,21 @@
 
   // Use block display on #mission, let inner container handle flex
   display: block;
+  margin-bottom: 100px;
+
+  .mission-figure {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/mission-figure.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+    pointer-events: none;
+  }
 
   .mission-container {
     width: 100%;
@@ -25,6 +40,7 @@
     justify-content: flex-end;
     align-items: flex-start;
     position: relative;
+    z-index: 2;
   }
 }
 
@@ -79,19 +95,6 @@
     }
   }
 
-  .mission-signature {
-    position: absolute;
-    width: 231px;
-    height: 143px;
-    left: 285px;
-    top: 505.5px;
-
-    background: url('../images/mission-figure.webp');
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    z-index: 5;
-  }
 }
 
 // Responsive
@@ -100,6 +103,7 @@
     padding: 100px 20px;
     height: auto;
     min-height: auto;
+    margin-bottom: 50px;
 
     .mission-container {
       flex-direction: column;
@@ -112,13 +116,5 @@
     width: 100%;
     max-width: 550px;
     height: auto;
-
-    .mission-signature {
-      position: relative;
-      left: auto;
-      top: auto;
-      margin-top: 20px;
-      align-self: center; // Center signature on mobile
-    }
   }
 }
