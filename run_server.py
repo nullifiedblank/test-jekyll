@@ -11,6 +11,27 @@ def is_port_in_use(port):
     except:
         return False
 
+def run_bundler_cmd(args, check=True):
+    """
+    Runs a bundler command (e.g., ['check'], ['install'], ['exec', 'jekyll', 'serve']).
+    Handles resolving the 'bundle' executable on Windows/POSIX.
+    """
+    bundle_path = shutil.which("bundle")
+
+    if bundle_path:
+        command = [bundle_path] + args
+        return subprocess.run(command, check=check)
+    else:
+        # Fallback if shutil.which doesn't find it (e.g., some Windows setups)
+        if sys.platform.startswith("win"):
+            # Use shell=True to let the shell resolve 'bundle'
+            cmd_str = "bundle " + " ".join(args)
+            return subprocess.run(cmd_str, shell=True, check=check)
+        else:
+            # POSIX fallback
+            command = ["bundle"] + args
+            return subprocess.run(command, check=check)
+
 def run_jekyll_server():
     port = 4000
     try:
@@ -19,32 +40,30 @@ def run_jekyll_server():
             input("Press Enter to exit...")
             sys.exit(1)
 
+        # 1. Check dependencies
+        print("Checking dependencies...")
+        try:
+            # check=False because we want to handle the exit code manually
+            check_proc = run_bundler_cmd(["check"], check=False)
+            if check_proc.returncode != 0:
+                print("\nDependencies missing. Running 'bundle install'...")
+                run_bundler_cmd(["install"], check=True)
+                print("Dependencies installed successfully.\n")
+        except FileNotFoundError:
+             # This catches if 'bundle' itself is missing in the shell=True or list cases if not found
+             print("\nError: 'bundle' command not found.")
+             print("Please ensure Ruby and Bundler are installed and available in your system's PATH.")
+             print("To install bundler, run: gem install bundler")
+             input("\nPress Enter to exit...")
+             sys.exit(1)
+
+        # 2. Start Server
         print("Starting Jekyll server...")
+        run_bundler_cmd(["exec", "jekyll", "serve"], check=True)
 
-        # Try to resolve 'bundle' executable path
-        bundle_path = shutil.which("bundle")
-
-        if bundle_path:
-            command = [bundle_path, "exec", "jekyll", "serve"]
-            subprocess.run(command, check=True)
-        else:
-            # Fallback for Windows or if shutil.which fails but shell might find it
-            if sys.platform.startswith("win"):
-                print("Bundle not found via shutil.which, attempting to run via shell...")
-                # On Windows, we need to pass a string if we want the shell to resolve 'bundle' (often a bat file)
-                subprocess.run("bundle exec jekyll serve", shell=True, check=True)
-            else:
-                # POSIX fallback
-                subprocess.run(["bundle", "exec", "jekyll", "serve"], check=True)
-
-    except FileNotFoundError:
-        print("\nError: 'bundle' command not found.")
-        print("Please ensure Ruby and Bundler are installed and available in your system's PATH.")
-        print("To install bundler, run: gem install bundler")
-        input("\nPress Enter to exit...")
-        sys.exit(1)
     except subprocess.CalledProcessError as e:
-        print(f"\nError running Jekyll server: {e}")
+        # This catches errors from run_bundler_cmd when check=True (install or serve)
+        print(f"\nError running command: {e}")
         input("\nPress Enter to exit...")
         sys.exit(1)
     except KeyboardInterrupt:
