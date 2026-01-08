@@ -76,7 +76,8 @@
   isolation: isolate;
 
   width: 550px;
-  height: 673px;
+  min-height: 673px;
+  height: auto;
 
   background: rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.15);
@@ -137,11 +138,12 @@
   }
 
   .mission-signature {
-    position: absolute;
+    position: relative;
+    align-self: flex-end;
+    margin-top: auto;
+
     width: 231px;
     height: 143px;
-    left: 285px;
-    top: 505.5px;
 
     background: url('../images/mission-signature.png');
     background-size: contain;
