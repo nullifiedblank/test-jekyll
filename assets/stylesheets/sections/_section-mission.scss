@@ -156,27 +156,6 @@
 
 // Responsive
 @media screen and (max-width: $laptop-screen) {
-  #mission {
-    padding: 0;
-    height: auto;
-    min-height: auto;
-    margin-bottom: 50px;
-
-    .bg-wrapper {
-      min-height: auto;
-      position: absolute;
-      height: 100%;
-    }
-
-    .mission-container {
-      padding: 100px 20px;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-  }
-
   .mission-card {
     width: 100%;
     max-width: 550px;
@@ -191,7 +170,7 @@
     width: 100%;
     min-height: auto;
     height: auto;
-    overflow: visible; // Allow card to hang out
+    overflow: hidden; // Ensure rounded corners are clipped
     background: #16201D;
     border-radius: 20px;
     padding: 0;
@@ -210,7 +189,7 @@
 
       // Adjust figure size and position for mobile
       .overlay {
-        width: 35%; // Increase size significantly but kept balanced
+        width: 6.7%; // Reverted to ~6.7% as requested
         // Maintain relative positioning to match background scaling
         top: 68%;
         left: 33%;
