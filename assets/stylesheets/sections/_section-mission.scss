@@ -1,42 +1,93 @@
 #mission {
   width: 100%;
   max-width: 1280px;
-  min-height: 1089px;
-  padding: 200px 60px;
+  // Padding removed or adjusted because content is now absolute over aspect-ratio background
+  // Keeping padding effectively on the container? Or just rely on flex layout
   border-radius: 20px;
   position: relative;
-  overflow: hidden;
-
-  background:
-    linear-gradient(rgba(246, 234, 189, 0.2), rgba(246, 234, 189, 0.2)),
-    url('../images/mission-bg.webp');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  // Use block display on #mission, let inner container handle flex
+  overflow: visible;
   display: block;
+  margin-bottom: 20px;
+
+  // The wrapper that maintains the aspect ratio and holds all background elements
+  .bg-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2550 / 2330;
+    overflow: hidden;
+    border-radius: 20px; // Ensure corners are rounded globally since parent has overflow: visible
+    z-index: 1;
+
+    .bg-base, .bg-figure {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    // mission-figure.webp (big figure)
+    .bg-figure {
+      z-index: 1;
+    }
+
+    // mission-bg.webp (base)
+    .bg-base {
+      z-index: 0;
+    }
+
+    // The overlay (mission-fig2.webp) locked to the background
+    .overlay {
+      position: absolute;
+      top: 68%;
+      left: 33%;
+      width: 6.75%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      pointer-events: none;
+      height: auto;
+    }
+  }
 
   .mission-container {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    padding: 200px 60px; // Moved padding here
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-start;
-    position: relative;
+    z-index: 3;
+    pointer-events: none; // Allow clicks to pass to bg if needed, but card needs pointer-events auto
+  }
+}
+
+// Intermediate breakpoint to fix overflow/overlap issues at laptop/tablet range
+@media screen and (max-width: 1280px) {
+  #mission {
+    .mission-container {
+      padding: 100px 40px; // Reduced padding to prevent card from going out of bounds
+    }
   }
 }
 
 .mission-card {
-  width: 550px;
-  height: 673px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 40px 40px 60px;
+  padding: 40px 40px 180px; // Increased bottom padding to accommodate absolute signature
   gap: 30px;
-  position: relative; // Context for absolute signature
+  isolation: isolate;
+
+  width: 550px;
+  min-height: 673px;
+  height: auto;
 
   background: rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.15);
@@ -44,12 +95,20 @@
   -webkit-backdrop-filter: blur(35px);
   border-radius: 20px;
 
+  // Inside auto layout properties
   flex: none;
   order: 0;
   flex-grow: 0;
+
+  position: relative; // Context for absolute signature
+  pointer-events: auto; // Restore pointer events
   z-index: 10;
 
   h2 {
+    width: 100%; // Responsive adjustment, original was fixed 464.2px
+    max-width: 464.2px;
+    // height: 156px; // Let height be auto for responsiveness
+
     font-family: $heading-strong-family;
     font-style: normal;
     font-weight: 600;
@@ -57,68 +116,177 @@
     line-height: 39px;
     letter-spacing: -0.03em;
     color: $white;
-
-    width: 100%;
-    max-width: 464.2px;
     margin-bottom: 0;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
   }
 
   .mission-text {
     p {
+      width: 100%; // Responsive adjustment
+      max-width: 470px;
+      // height: 395px; // Let height be auto
+
       font-family: $base-font-family;
       font-style: normal;
       font-weight: 300;
       font-size: 16px;
       line-height: 24px;
-      color: $white;
       hanging-punctuation: first last;
-
-      width: 100%;
-      max-width: 470px;
+      color: $white;
       white-space: pre-line;
+
+      flex: none;
+      order: 1;
+      align-self: stretch;
+      flex-grow: 0;
+      z-index: 1;
     }
   }
 
   .mission-signature {
     position: absolute;
+    bottom: 40px; // Aligns with bottom padding
+    right: 40px; // Aligns with right padding
+
     width: 231px;
     height: 143px;
-    left: 285px;
-    top: 505.5px;
 
-    background: url('../images/mission-figure.webp');
+    background: url('../images/mission-signature.png');
     background-size: contain;
     background-repeat: no-repeat;
 
-    z-index: 5;
+    z-index: 2;
   }
 }
 
 // Responsive
 @media screen and (max-width: $laptop-screen) {
-  #mission {
-    padding: 100px 20px;
+  .mission-card {
+    width: 100%;
+    max-width: 550px;
     height: auto;
-    min-height: auto;
+    pointer-events: auto; // Restore interactivity
+  }
+}
 
+// Intermediate breakpoint to fix overflow/overlap issues
+@media screen and (max-width: 950px) {
+  #mission {
     .mission-container {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      padding: 60px 20px; // Reduce top padding significantly to fit card
+      align-items: center; // Center vertically if needed, or stick to flex-start
     }
   }
 
   .mission-card {
     width: 100%;
-    max-width: 550px;
-    height: auto;
+    max-width: 480px; // Reduce max-width to stay compact
+    padding: 25px 25px 120px; // Reduce internal padding but keep bottom space for signature
+    gap: 12px; // Reduce gap between elements
+
+    h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .mission-text p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
 
     .mission-signature {
+      // position: absolute (inherited)
+      bottom: 25px;
+      right: 25px;
+      width: 160px;
+      height: 100px;
+    }
+  }
+}
+
+// Mobile specific styles (639px and below)
+@media screen and (max-width: 639px) {
+  #mission {
+    width: 100%;
+    min-height: auto;
+    height: auto;
+    overflow: hidden; // Ensure rounded corners are clipped
+    background: #16201D;
+    border-radius: 20px;
+    padding: 0;
+    margin-bottom: 100px; // Add spacing below section
+
+    .bg-wrapper {
+      display: block; // Show the wrapper
       position: relative;
-      left: auto;
-      top: auto;
-      margin-top: 20px;
-      align-self: center; // Center signature on mobile
+      width: 100%;
+      height: auto;
+      min-height: auto;
+      // Maintain aspect ratio so images scale with each other
+      aspect-ratio: 2550 / 2330;
+      overflow: hidden;
+      border-radius: 20px;
+
+      // Adjust figure size and position for mobile
+      .overlay {
+        width: 6.7%; // Reverted to ~6.7% as requested
+        // Maintain relative positioning to match background scaling
+        top: 68%;
+        left: 33%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .mission-container {
+      position: relative;
+      width: 100%;
+      height: auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: -100px; // Overlap the background
+    }
+  }
+
+  .mission-card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 40px 30px 140px;
+
+    // Remove glassmorphism for mobile
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: 20px;
+
+    h2 {
+      width: 100%;
+      font-size: 32px;
+      line-height: 1.2;
+    }
+
+    .mission-text p {
+      width: 100%;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .mission-signature {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      width: 180px;
+      height: 110px;
+      opacity: 0.8;
     }
   }
 }
