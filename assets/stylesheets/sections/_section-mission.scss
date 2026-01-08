@@ -164,6 +164,43 @@
   }
 }
 
+// Intermediate breakpoint to fix overflow/overlap issues
+@media screen and (max-width: 950px) {
+  #mission {
+    .mission-container {
+      padding: 60px 20px; // Reduce top padding significantly to fit card
+      align-items: center; // Center vertically if needed, or stick to flex-start
+    }
+  }
+
+  .mission-card {
+    width: 100%;
+    max-width: 480px; // Reduce max-width to stay compact
+    padding: 25px; // Reduce internal padding
+    gap: 12px; // Reduce gap between elements
+
+    h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .mission-text p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .mission-signature {
+      position: relative; // Switch to relative flow to avoid absolute positioning issues
+      top: auto;
+      left: auto;
+      margin-top: 10px;
+      width: 160px;
+      height: 100px;
+      align-self: flex-end;
+    }
+  }
+}
+
 // Mobile specific styles (639px and below)
 @media screen and (max-width: 639px) {
   #mission {
