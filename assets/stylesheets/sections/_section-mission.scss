@@ -15,6 +15,7 @@
     width: 100%;
     aspect-ratio: 2550 / 2330;
     overflow: hidden;
+    border-radius: 20px; // Ensure corners are rounded globally since parent has overflow: visible
     z-index: 1;
 
     .bg-base, .bg-figure {
@@ -67,11 +68,20 @@
   }
 }
 
+// Intermediate breakpoint to fix overflow/overlap issues at laptop/tablet range
+@media screen and (max-width: 1280px) {
+  #mission {
+    .mission-container {
+      padding: 100px 40px; // Reduced padding to prevent card from going out of bounds
+    }
+  }
+}
+
 .mission-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 40px 40px 60px;
+  padding: 40px 40px 180px; // Increased bottom padding to accommodate absolute signature
   gap: 30px;
   isolation: isolate;
 
@@ -138,9 +148,9 @@
   }
 
   .mission-signature {
-    position: relative;
-    align-self: flex-end;
-    margin-top: auto;
+    position: absolute;
+    bottom: 40px; // Aligns with bottom padding
+    right: 40px; // Aligns with right padding
 
     width: 231px;
     height: 143px;
@@ -149,9 +159,6 @@
     background-size: contain;
     background-repeat: no-repeat;
 
-    flex: none;
-    order: 2;
-    flex-grow: 0;
     z-index: 2;
   }
 }
@@ -178,7 +185,7 @@
   .mission-card {
     width: 100%;
     max-width: 480px; // Reduce max-width to stay compact
-    padding: 25px; // Reduce internal padding
+    padding: 25px 25px 120px; // Reduce internal padding but keep bottom space for signature
     gap: 12px; // Reduce gap between elements
 
     h2 {
@@ -192,13 +199,11 @@
     }
 
     .mission-signature {
-      position: relative; // Switch to relative flow to avoid absolute positioning issues
-      top: auto;
-      left: auto;
-      margin-top: 10px;
+      // position: absolute (inherited)
+      bottom: 25px;
+      right: 25px;
       width: 160px;
       height: 100px;
-      align-self: flex-end;
     }
   }
 }
