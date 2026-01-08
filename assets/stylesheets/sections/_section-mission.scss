@@ -192,7 +192,7 @@
     min-height: auto;
     height: auto;
     overflow: visible; // Allow card to hang out
-    background: transparent;
+    background: #16201D;
     border-radius: 20px;
     padding: 0;
     margin-bottom: 100px; // Add spacing below section
@@ -210,7 +210,7 @@
 
       // Adjust figure size and position for mobile
       .overlay {
-        width: 55%; // Increase size significantly
+        width: 35%; // Increase size significantly but kept balanced
         // Maintain relative positioning to match background scaling
         top: 68%;
         left: 33%;
@@ -238,11 +238,11 @@
     margin: 0;
     padding: 40px 30px 60px;
 
-    // Restore card styling
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(35px);
-    -webkit-backdrop-filter: blur(35px);
+    // Remove glassmorphism for mobile
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border-radius: 20px;
 
     h2 {
