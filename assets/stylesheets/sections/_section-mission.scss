@@ -259,7 +259,7 @@
     max-width: 100%;
     height: auto;
     margin: 0;
-    padding: 40px 30px 60px;
+    padding: 40px 30px 140px;
 
     // Remove glassmorphism for mobile
     background: transparent;
@@ -281,14 +281,12 @@
     }
 
     .mission-signature {
-      position: relative; // Flow naturally
-      top: auto;
-      left: auto;
-      margin-top: 20px;
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
       width: 180px;
       height: 110px;
       opacity: 0.8;
-      align-self: flex-end;
     }
   }
 }
