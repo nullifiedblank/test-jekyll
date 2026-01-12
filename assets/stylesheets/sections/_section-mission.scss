@@ -81,27 +81,22 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 40px 40px 180px; // Increased bottom padding to accommodate absolute signature
+  padding: 40px 40px 40px;
   gap: 30px;
   isolation: isolate;
-
   width: 550px;
   min-height: 673px;
   height: auto;
-
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.15);
+  background: hsla(0, 0%, 100%, .25);
+  box-shadow: inset 0px 1px 0px hsla(0, 0%, 100%, .25), inset 0px 0px 0px 1px hsla(0, 0%, 100%, .15);
   backdrop-filter: blur(35px);
   -webkit-backdrop-filter: blur(35px);
   border-radius: 20px;
-
-  // Inside auto layout properties
   flex: none;
   order: 0;
   flex-grow: 0;
-
-  position: relative; // Context for absolute signature
-  pointer-events: auto; // Restore pointer events
+  position: relative;
+  pointer-events: auto;
   z-index: 10;
 
   h2 {
@@ -185,7 +180,7 @@
   .mission-card {
     width: 100%;
     max-width: 480px; // Reduce max-width to stay compact
-    padding: 25px 25px 120px; // Reduce internal padding but keep bottom space for signature
+    padding: 25px;
     gap: 12px; // Reduce gap between elements
 
     h2 {
